@@ -1,0 +1,3 @@
+/Users/artem/Documents/База знаний 2.0/МП/mp_HW03/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+/Users/artem/Documents/База знаний 2.0/МП/mp_HW03/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+/Users/artem/Documents/База знаний 2.0/МП/mp_HW03/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
