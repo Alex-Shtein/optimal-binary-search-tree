@@ -14,7 +14,7 @@
 
 ```cpp
 // Конструктор с параметрами
-OptimalBinaryTree(T* arr, int* success, int* failure, int size);
+OptimalBinarySearchTree(T* arr, int* success, int* failure, int size);
 
 // Вставка элемента
 bool Insert(const T& value);
@@ -39,7 +39,7 @@ int keys[] = {1, 2, 3, 4};
 int success_probs[] = {0, 5, 4, 1, 7}; // Вероятности успешного поиска
 int failure_probs[] = {3, 8, 2, 9, 6}; // Вероятности неудачного поиска
 
-OptimalBinaryTree<int> tree(keys, success_probs, failure_probs, 4);
+OptimalBinarySearchTree<int> tree(keys, success_probs, failure_probs, 4);
 
 // Проверка наличия элемента
 if (tree.Contains(3)) {
@@ -74,7 +74,7 @@ mkdir build
 cd build
 cmake ..
 make
-./tests/OptimalBinaryTreeTests
+./tests/OptimalBinarySearchTreeTests
 ```
 
 ## Требования

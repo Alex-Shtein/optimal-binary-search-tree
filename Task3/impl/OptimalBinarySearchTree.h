@@ -1,57 +1,57 @@
 #ifndef IMPL_OPTIMAL_BINARY_TREE_H
 #define IMPL_OPTIMAL_BINARY_TREE_H
 
-#include "../OptimalBinaryTree.h"
+#include "../OptimalBinarySearchTree.h"
 
 template <typename T>
-OptimalBinaryTree<T>::TreeNode::TreeNode(T value, TreeNode *left, TreeNode *right)
+OptimalBinarySearchTree<T>::TreeNode::TreeNode(T value, TreeNode *left, TreeNode *right)
     : _value(value), _left(left), _right(right) {}
 
 template <typename T>
-OptimalBinaryTree<T>::TreeNode::~TreeNode()
+OptimalBinarySearchTree<T>::TreeNode::~TreeNode()
 {
     delete _left;
     delete _right;
 }
 
 template <typename T>
-T OptimalBinaryTree<T>::TreeNode::GetValue()
+T OptimalBinarySearchTree<T>::TreeNode::GetValue()
 {
     return _value;
 }
 
 template <typename T>
-typename OptimalBinaryTree<T>::TreeNode *OptimalBinaryTree<T>::TreeNode::GetLeft()
+typename OptimalBinarySearchTree<T>::TreeNode *OptimalBinarySearchTree<T>::TreeNode::GetLeft()
 {
     return _left;
 }
 
 template <typename T>
-typename OptimalBinaryTree<T>::TreeNode *OptimalBinaryTree<T>::TreeNode::GetRight()
+typename OptimalBinarySearchTree<T>::TreeNode *OptimalBinarySearchTree<T>::TreeNode::GetRight()
 {
     return _right;
 }
 
 template <typename T>
-void OptimalBinaryTree<T>::TreeNode::SetValue(T value)
+void OptimalBinarySearchTree<T>::TreeNode::SetValue(T value)
 {
     _value = value;
 }
 
 template <typename T>
-void OptimalBinaryTree<T>::TreeNode::SetLeft(TreeNode *left)
+void OptimalBinarySearchTree<T>::TreeNode::SetLeft(TreeNode *left)
 {
     _left = left;
 }
 
 template <typename T>
-void OptimalBinaryTree<T>::TreeNode::SetRight(TreeNode *right)
+void OptimalBinarySearchTree<T>::TreeNode::SetRight(TreeNode *right)
 {
     _right = right;
 }
 
 template <typename T>
-typename OptimalBinaryTree<T>::TreeNode *OptimalBinaryTree<T>::FindParent(T value)
+typename OptimalBinarySearchTree<T>::TreeNode *OptimalBinarySearchTree<T>::FindParent(T value)
 {
     TreeNode *current = _root;
     TreeNode *parent = nullptr;
@@ -66,7 +66,7 @@ typename OptimalBinaryTree<T>::TreeNode *OptimalBinaryTree<T>::FindParent(T valu
 }
 
 template <typename T>
-void OptimalBinaryTree<T>::BuildOptimalBinaryTree(int *values, int **matrix, int leftValue, int rightValue)
+void OptimalBinarySearchTree<T>::BuildOptimalBinarySearchTree(int *values, int **matrix, int leftValue, int rightValue)
 {
     if (leftValue <= rightValue && rightValue != 0)
     {
@@ -74,18 +74,18 @@ void OptimalBinaryTree<T>::BuildOptimalBinaryTree(int *values, int **matrix, int
 
         if (leftValue < matrix[leftValue][rightValue])
         {
-            BuildOptimalBinaryTree(values, matrix, leftValue, matrix[leftValue][rightValue] - 1);
+            BuildOptimalBinarySearchTree(values, matrix, leftValue, matrix[leftValue][rightValue] - 1);
         }
 
         if (matrix[leftValue][rightValue] < rightValue)
         {
-            BuildOptimalBinaryTree(values, matrix, matrix[leftValue][rightValue] + 1, rightValue);
+            BuildOptimalBinarySearchTree(values, matrix, matrix[leftValue][rightValue] + 1, rightValue);
         }
     }
 }
 
 template <typename T>
-typename OptimalBinaryTree<T>::TreeNode *OptimalBinaryTree<T>::Find(T value)
+typename OptimalBinarySearchTree<T>::TreeNode *OptimalBinarySearchTree<T>::Find(T value)
 {
     TreeNode *current = _root;
 
@@ -98,7 +98,7 @@ typename OptimalBinaryTree<T>::TreeNode *OptimalBinaryTree<T>::Find(T value)
 }
 
 template <typename T>
-OptimalBinaryTree<T>::OptimalBinaryTree(T *arr, int *success, int *failure, int size)
+OptimalBinarySearchTree<T>::OptimalBinarySearchTree(T *arr, int *success, int *failure, int size)
 {
     _root = nullptr;
     int **R = new int *[size + 1];
@@ -138,7 +138,7 @@ OptimalBinaryTree<T>::OptimalBinaryTree(T *arr, int *success, int *failure, int 
         }
     }
 
-    BuildOptimalBinaryTree(arr, R, 0, size);
+    BuildOptimalBinarySearchTree(arr, R, 0, size);
 
     for (int i = 0; i <= size; ++i)
     {
@@ -152,7 +152,7 @@ OptimalBinaryTree<T>::OptimalBinaryTree(T *arr, int *success, int *failure, int 
 }
 
 template <typename T>
-bool OptimalBinaryTree<T>::Insert(const T &value)
+bool OptimalBinarySearchTree<T>::Insert(const T &value)
 {
     if (Contains(value))
     {
@@ -184,20 +184,20 @@ bool OptimalBinaryTree<T>::Insert(const T &value)
 }
 
 template <typename T>
-bool OptimalBinaryTree<T>::Contains(const T &value)
+bool OptimalBinarySearchTree<T>::Contains(const T &value)
 {
     TreeNode *tree = Find(value);
     return tree != nullptr;
 }
 
 template <typename T>
-bool OptimalBinaryTree<T>::Empty() const
+bool OptimalBinarySearchTree<T>::Empty() const
 {
     return !_root;
 }
 
 template <typename T>
-std::vector<T> OptimalBinaryTree<T>::RoundRootLR()
+std::vector<T> OptimalBinarySearchTree<T>::RoundRootLR()
 {
     std::vector<T> result;
     std::vector<TreeNode *> TreeNodes;
@@ -242,7 +242,7 @@ std::vector<T> OptimalBinaryTree<T>::RoundRootLR()
 }
 
 template <typename T>
-void OptimalBinaryTree<T>::Output()
+void OptimalBinarySearchTree<T>::Output()
 {
     if (_root)
     {
@@ -251,7 +251,7 @@ void OptimalBinaryTree<T>::Output()
 }
 
 template <typename T>
-void OptimalBinaryTree<T>::Print(TreeNode *current, std::string padding)
+void OptimalBinarySearchTree<T>::Print(TreeNode *current, std::string padding)
 {
     if (current->GetRight())
     {

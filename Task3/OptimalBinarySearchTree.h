@@ -1,12 +1,12 @@
-#ifndef OPTIMALBINARYTREE_H
-#define OPTIMALBINARYTREE_H
+#ifndef OPTIMAL_BINARY_SEARCH_TREE_H
+#define OPTIMAL_BINARY_SEARCH_TREE_H
 
 #include <vector>
 #include <string>
 #include <iomanip>
 
 template <typename T>
-class OptimalBinaryTree
+class OptimalBinarySearchTree
 {
 private:
     class TreeNode
@@ -29,12 +29,12 @@ private:
 
     TreeNode *_root;
     TreeNode *FindParent(T value);
-    void BuildOptimalBinaryTree(int *values, int **matrix, int leftvalue, int rightvalue);
+    void BuildOptimalBinarySearchTree(int *values, int **matrix, int leftvalue, int rightvalue);
     TreeNode *Find(T value);
     void Print(TreeNode *current, std::string padding);
 
 public:
-    OptimalBinaryTree(T *arr, int *success, int *failure, int size);
+    OptimalBinarySearchTree(T *arr, int *success, int *failure, int size);
     bool Insert(const T &value);
     bool Contains(const T &value);
     bool Empty() const;
@@ -42,6 +42,6 @@ public:
     void Output();
 };
 
-#include "./impl/OptimalBinaryTree.h"
+#include "./impl/OptimalBinarySearchTree.h"
 
 #endif
